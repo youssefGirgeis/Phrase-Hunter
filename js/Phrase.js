@@ -6,4 +6,8 @@ class Phrase {
   constructor(phrase) {
     this.phrase = phrase.toLowerCase();
   }
+
+  addPhraseToDisplay() {
+    document.getElementById("phrase").textContent = `${this.phrase}`;
+  }
 }
