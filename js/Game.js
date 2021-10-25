@@ -8,4 +8,8 @@ class Game {
     this.phrases = phrases;
     this.activePhrase = activePhrase;
   }
+
+  getRandomPhrase() {
+    return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+  }
 }
