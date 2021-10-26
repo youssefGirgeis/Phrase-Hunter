@@ -19,5 +19,9 @@ class Game {
     return this.phrases[Math.floor(Math.random() * this.phrases.length)];
   }
 
-  handleInteraction() {}
+  handleInteraction(key) {
+    // console.log(this);
+    // console.log(key.textContent);
+    console.log(this.activePhrase.checkLetter(key.textContent));
+  }
 }

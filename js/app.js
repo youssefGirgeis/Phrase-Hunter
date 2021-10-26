@@ -19,6 +19,6 @@ startGameBtn.addEventListener("click", () => {
 const keyboardKeys = document.getElementsByClassName("key");
 for (const key of keyboardKeys) {
   key.addEventListener("click", function () {
-    game.handleInteraction();
+    game.handleInteraction(key);
   });
 }

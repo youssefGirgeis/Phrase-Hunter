@@ -27,5 +27,7 @@ class Phrase {
     phrase.appendChild(ul);
   }
 
-  checkLetter() {}
+  checkLetter(letter) {
+    return this.phrase.includes(letter);
+  }
 }
