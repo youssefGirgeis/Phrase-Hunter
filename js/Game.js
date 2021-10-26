@@ -20,8 +20,17 @@ class Game {
   }
 
   handleInteraction(key) {
-    // console.log(this);
-    // console.log(key.textContent);
-    console.log(this.activePhrase.checkLetter(key.textContent));
+    if (this.activePhrase.checkLetter(key.textContent)) {
+    } else {
+      key.classList.add("wrong");
+      this.removeLife();
+    }
+  }
+
+  removeLife() {
+    this.missed++;
+    const imgs = document.getElementsByClassName("tries");
+    imgs[imgs.length - this.missed].firstElementChild.src =
+      "images/lostHeart.png";
   }
 }
