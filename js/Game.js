@@ -32,5 +32,11 @@ class Game {
     const imgs = document.getElementsByClassName("tries");
     imgs[imgs.length - this.missed].firstElementChild.src =
       "images/lostHeart.png";
+    if (this.missed === 5) this.gameOver();
+  }
+
+  gameOver() {
+    document.getElementById("overlay").style.display = "flex";
+    document.getElementById("game-over-message").textContent = "YOU LOST 😢";
   }
 }
