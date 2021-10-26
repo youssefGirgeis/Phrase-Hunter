@@ -15,3 +15,10 @@ const startGameBtn = document.getElementById("btn__reset");
 startGameBtn.addEventListener("click", () => {
   game.startGame();
 });
+
+const keyboardKeys = document.getElementsByClassName("key");
+for (const key of keyboardKeys) {
+  key.addEventListener("click", function () {
+    game.handleInteraction();
+  });
+}

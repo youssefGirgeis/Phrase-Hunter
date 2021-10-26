@@ -18,4 +18,6 @@ class Game {
   getRandomPhrase() {
     return this.phrases[Math.floor(Math.random() * this.phrases.length)];
   }
+
+  handleInteraction() {}
 }
