@@ -17,7 +17,7 @@ class Phrase {
       const li = document.createElement("li");
       if (letter !== " ") {
         li.textContent = `${letter}`;
-        li.classList.add("letter");
+        li.classList.add("letter", "hide");
       } else {
         li.classList.add("space");
       }
@@ -33,7 +33,10 @@ class Phrase {
   showMatchedLetter(selectedLetter) {
     const letters = document.querySelectorAll(".letter");
     for (const letter of letters) {
-      if (selectedLetter === letter.textContent) letter.classList.add("show");
+      if (selectedLetter === letter.textContent) {
+        letter.classList.add("show");
+        letter.classList.remove("hide");
+      }
     }
   }
 }
