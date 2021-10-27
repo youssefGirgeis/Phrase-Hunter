@@ -22,6 +22,7 @@ class Game {
   handleInteraction(key) {
     key.disabled = true;
     if (this.activePhrase.checkLetter(key.textContent)) {
+      key.classList.add("chosen");
       this.activePhrase.showMatchedLetter(key.textContent);
     } else {
       key.classList.add("wrong");
