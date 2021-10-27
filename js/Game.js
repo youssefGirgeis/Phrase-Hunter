@@ -30,9 +30,12 @@ class Game {
   removeLife() {
     this.missed++;
     const imgs = document.getElementsByClassName("tries");
+    console.log(this.missed);
     imgs[imgs.length - this.missed].firstElementChild.src =
       "images/lostHeart.png";
-    if (this.missed === 5) this.gameOver();
+    if (this.missed === 5) {
+      this.gameOver();
+    }
   }
 
   gameOver() {
