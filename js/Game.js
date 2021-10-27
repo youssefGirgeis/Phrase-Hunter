@@ -20,6 +20,7 @@ class Game {
   }
 
   handleInteraction(key) {
+    key.disabled = true;
     if (this.activePhrase.checkLetter(key.textContent)) {
       this.activePhrase.showMatchedLetter(key.textContent);
     } else {
