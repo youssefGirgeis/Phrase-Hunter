@@ -3,6 +3,8 @@
  * Game.js */
 const imgs = document.getElementsByClassName("tries");
 const letters = document.getElementsByClassName("letter");
+const gameOverMessage = document.getElementById("game-over-message");
+const overlay = document.getElementById("overlay");
 
 class Game {
   constructor(missed, phrases, activePhrase) {
@@ -26,7 +28,7 @@ class Game {
     if (this.activePhrase.checkLetter(key.textContent)) {
       key.classList.add("chosen");
       this.activePhrase.showMatchedLetter(key.textContent);
-      if (this.checkForWin()) this.gameOver("YOU WON 🏆");
+      if (this.checkForWin()) this.gameOver("win");
     } else {
       key.classList.add("wrong");
       this.removeLife();
@@ -39,7 +41,7 @@ class Game {
     imgs[imgs.length - this.missed].firstElementChild.src =
       "images/lostHeart.png";
     if (this.missed === 5) {
-      this.gameOver("YOU LOST 😥");
+      this.gameOver("lose");
     }
   }
 
@@ -50,8 +52,15 @@ class Game {
     return true;
   }
 
-  gameOver(message) {
-    document.getElementById("overlay").style.display = "flex";
-    document.getElementById("game-over-message").textContent = `${message}`;
+  gameOver(result) {
+    overlay.style.display = "flex";
+    overlay.classList.remove("start");
+    if (result === "win") {
+      gameOverMessage.textContent = "YOU WON 🏆";
+      overlay.classList.add(`${result}`);
+    } else {
+      gameOverMessage.textContent = "YOU LOST 💩";
+      overlay.classList.add(`${result}`);
+    }
   }
 }
