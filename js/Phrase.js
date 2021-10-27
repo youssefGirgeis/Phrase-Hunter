@@ -23,11 +23,17 @@ class Phrase {
       }
       ul.appendChild(li);
     }
-
     phrase.appendChild(ul);
   }
 
-  checkLetter(letter) {
-    return this.phrase.includes(letter);
+  checkLetter(selectedLetter) {
+    return this.phrase.includes(selectedLetter);
+  }
+
+  showMatchedLetter(selectedLetter) {
+    const letters = document.querySelectorAll(".letter");
+    for (const letter of letters) {
+      if (selectedLetter === letter.textContent) letter.classList.add("show");
+    }
   }
 }

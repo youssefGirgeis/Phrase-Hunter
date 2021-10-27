@@ -21,6 +21,7 @@ class Game {
 
   handleInteraction(key) {
     if (this.activePhrase.checkLetter(key.textContent)) {
+      this.activePhrase.showMatchedLetter(key.textContent);
     } else {
       key.classList.add("wrong");
       this.removeLife();
