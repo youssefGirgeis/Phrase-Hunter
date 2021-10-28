@@ -1,10 +1,6 @@
 /* Treehouse FSJS Techdegree
  * Project 4 - OOP Game App
  * Game.js */
-const imgs = document.getElementsByClassName("tries");
-const letters = document.getElementsByClassName("letter");
-const gameOverMessage = document.getElementById("game-over-message");
-const overlay = document.getElementById("overlay");
 
 class Game {
   constructor(missed, phrases, activePhrase) {
@@ -14,7 +10,7 @@ class Game {
   }
 
   startGame() {
-    document.getElementById("overlay").style.display = "none";
+    overlay.style.display = "none";
     this.activePhrase = this.getRandomPhrase();
     this.activePhrase.addPhraseToDisplay();
   }
@@ -37,7 +33,6 @@ class Game {
 
   removeLife() {
     this.missed++;
-    console.log(this.missed);
     imgs[imgs.length - this.missed].firstElementChild.src =
       "images/lostHeart.png";
     if (this.missed === 5) {
@@ -61,6 +56,21 @@ class Game {
     } else {
       gameOverMessage.textContent = "YOU LOST 💩";
       overlay.classList.add(`${result}`);
+    }
+  }
+
+  resetGame() {
+    document.querySelector("ul").remove();
+    for (const key of keyboardKeys) {
+      if (key.disabled) {
+        key.disabled = false;
+        key.classList.contains("wrong")
+          ? key.classList.remove("wrong")
+          : key.classList.remove("chosen");
+      }
+    }
+    for (const image of imgs) {
+      image.firstElementChild.src = "images/liveHeart.png";
     }
   }
 }

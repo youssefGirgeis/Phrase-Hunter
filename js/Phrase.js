@@ -9,8 +9,6 @@ class Phrase {
 
   addPhraseToDisplay() {
     const phrase = document.getElementById("phrase");
-    // phrase.textContent = `${this.phrase}`;
-    console.log(this.phrase);
     const ul = document.createElement("ul");
 
     for (const letter of this.phrase) {
